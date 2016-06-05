@@ -3,7 +3,7 @@ import {Component} from 'angular2/core';
 
 @Component({
     selector: 'application',
-    templateUrl: 'app/components/application/application.html'
+    template: '<h1>hello {{name}}</h1>'
 })
 
 export default class ApplicationComponent {

@@ -5,11 +5,11 @@ import {Component} from 'angular2/core';
 
 
 @Component({
-    selector: 'footrt-component',
-    template: ''
+    selector: 'album-component',
+    template: 'album'
 })
 
-export default class FooterComponent {
+export default class AlbumComponent {
 
     constructor(){
 

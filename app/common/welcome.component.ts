@@ -5,11 +5,11 @@ import {Component} from 'angular2/core';
 
 
 @Component({
-    selector: 'footrt-component',
-    template: ''
+    selector: 'welcome-component',
+    template: `<h1>welcome</h1>`
 })
 
-export default class FooterComponent {
+export default class WelcomeComponent {
 
     constructor(){
 

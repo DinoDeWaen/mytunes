@@ -5,11 +5,11 @@ import {Component} from 'angular2/core';
 
 
 @Component({
-    selector: 'footrt-component',
-    template: ''
+    selector: 'pagination-component',
+    template: 'pagination'
 })
 
-export default class FooterComponent {
+export default class PaginationComponent {
 
     constructor(){
 

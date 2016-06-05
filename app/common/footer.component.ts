@@ -6,8 +6,8 @@ import {Component} from 'angular2/core';
 
 
 @Component({
-    selector: 'footrt-component',
-    template: ''
+    selector: 'footer-component',
+    template: 'footer'
 })
 
 export default class FooterComponent {

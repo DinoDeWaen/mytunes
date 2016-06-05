@@ -2,8 +2,15 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "system",
-    "moduleResolution": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap":true,
     "experimentalDecorators": true,
-    "noImplicitAny": true
-  }
+    "noImplicitAny": true,
+    "removeComments": false,
+    "emitDecoratorMetadata": true
+  },
+  "exclude":[
+    "node.modules",
+    "typings/main",
+    "typings/main.d.ts"]
 }

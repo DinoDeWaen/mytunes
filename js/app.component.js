@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var footer_component_1 = require("./common/footer.component");
+var header_component_1 = require("./common/header.component");
 var welcome_component_1 = require("./common/welcome.component");
 var AppComponent = (function () {
     function AppComponent() {
@@ -18,10 +20,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'app-component',
             template: "<header-component></header-component>\n               <div class =\"container\">\n                <router-outlet></router-outlet>\n               </div>\n               <footer-component></footer-component>",
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [
-                router_deprecated_1.ROUTER_PROVIDERS
-            ]
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, footer_component_1.FooterComponent, header_component_1.HeaderComponent],
+            providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }),
         router_deprecated_1.RouteConfig([
             {

@@ -16,10 +16,8 @@ import {WelcomeComponent} from "./common/welcome.component";
                 <router-outlet></router-outlet>
                </div>
                <footer-component></footer-component>`,
-    directives : [ROUTER_DIRECTIVES],
-    providers: [
-        ROUTER_PROVIDERS
-    ]
+    directives : [ROUTER_DIRECTIVES, FooterComponent, HeaderComponent],
+    providers: [ROUTER_PROVIDERS]
 })
 
 @RouteConfig([

@@ -1,25 +1,27 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>THE PROJECT TITLE</title>
-    <style>body{padding-top:70px}</style>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/typescript/lib/typescript.js"></script>
+    <title>Angular 2 QuickStart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-
-    <script src="config.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('js').catch(function(err){ console.error(err); });
+    </script>
 </head>
+<base href="/">
+<!-- 3. Display the application -->
 <body>
-<app-component><h1>Loading...</h1></app-component>
-<script>System.import('app')</script>
+<app-component>Loading...</app-component>
 </body>
 </html>

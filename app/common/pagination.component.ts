@@ -1,7 +1,7 @@
 /**
  * Created by serrut on 05/06/16.
  */
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import {Component} from 'angular2/core';
     template: 'pagination'
 })
 
-export default class PaginationComponent {
+export class PaginationComponent {
 
     constructor(){
 

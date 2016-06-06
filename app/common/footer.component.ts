@@ -2,7 +2,7 @@
  * Created by serrut on 05/06/16.
  */
 
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Component} from 'angular2/core';
     template: 'footer'
 })
 
-export default class FooterComponent {
+export class FooterComponent {
 
     constructor(){
 

@@ -1,13 +1,13 @@
 
-import {Component} from 'angular2/core';
-import {RouteConfig, RouterOutlet} from 'angular2/router';
-import LoginComponent from "./user/login.component";
-import RegistrationComponent from "./user/registration.component";
-import FooterComponent from "./common/footer.component";
-import HeaderComponent from "./common/header.component";
-import WelcomeComponent from "./common/welcome.component";
-import AlbumsComponent from "./music/albums.component";
-import AlbumComponent from "./music/album.component";
+import {Component} from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import {FORM_PROVIDERS, FORM_DIRECTIVES, Control} from '@angular/common';
+import {Http} from '@angular/http';
+import {LoginComponent} from "./user/login.component";
+import {RegistrationComponent} from "./user/registration.component";
+import {FooterComponent} from "./common/footer.component";
+import {HeaderComponent} from "./common/header.component";
+import {WelcomeComponent} from "./common/welcome.component";
 
 @Component({
     selector: 'app-component',
@@ -16,17 +16,19 @@ import AlbumComponent from "./music/album.component";
                 <router-outlet></router-outlet>
                </div>
                <footer-component></footer-component>`,
-    directives : [RouterOutlet, LoginComponent, RegistrationComponent, HeaderComponent, FooterComponent, WelcomeComponent, AlbumsComponent]
+    directives : [ROUTER_DIRECTIVES],
+    providers: [
+        ROUTER_PROVIDERS
+    ]
 })
+
 @RouteConfig([
-    {path: "/", name: "Home", component: WelcomeComponent, useAsDefault: true},
-    {path: "/albums", name: "Albums", component: AlbumsComponent},
-    {path: "/album", name: "Album", component: AlbumComponent},
-    {path: "/login", name: "Login", component: LoginComponent},
-    {path: "/registration", name: "Registration", component: RegistrationComponent}
+    {
+        path: '/',
+        name: 'Home',
+        component: WelcomeComponent
+    }
 ])
-
-
 export default class AppComponent {
     constructor(){
     }

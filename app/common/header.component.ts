@@ -1,7 +1,7 @@
 /**
  * Created by serrut on 05/06/16.
  */
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import {Component} from 'angular2/core';
     template: 'header'
 })
 
-export default class HeaderComponent {
+export class HeaderComponent {
 
     constructor(){
 

@@ -10,9 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var login_component_1 = require("./user/login.component");
+var registration_component_1 = require("./user/registration.component");
 var footer_component_1 = require("./common/footer.component");
 var header_component_1 = require("./common/header.component");
 var welcome_component_1 = require("./common/welcome.component");
+var album_component_1 = require("./music/album.component");
+var albums_component_1 = require("./music/albums.component");
+//noinspection TypeScriptValidateTypes
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -24,11 +29,11 @@ var AppComponent = (function () {
             providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }),
         router_deprecated_1.RouteConfig([
-            {
-                path: '/',
-                name: 'Home',
-                component: welcome_component_1.WelcomeComponent
-            }
+            { path: '/', name: 'Home', component: welcome_component_1.WelcomeComponent },
+            { path: '/albums', name: 'Albums', component: albums_component_1.AlbumsComponent },
+            { path: '/album', name: 'Album', component: album_component_1.AlbumComponent },
+            { path: '/login', name: 'Login', component: login_component_1.LoginComponent },
+            { path: '/registration', name: 'Home', component: registration_component_1.RegistrationComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

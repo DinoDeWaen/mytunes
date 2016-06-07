@@ -8,7 +8,10 @@ import {RegistrationComponent} from "./user/registration.component";
 import {FooterComponent} from "./common/footer.component";
 import {HeaderComponent} from "./common/header.component";
 import {WelcomeComponent} from "./common/welcome.component";
+import {AlbumComponent} from "./music/album.component";
+import {AlbumsComponent} from "./music/albums.component";
 
+//noinspection TypeScriptValidateTypes
 @Component({
     selector: 'app-component',
     template: `<header-component></header-component>
@@ -21,11 +24,11 @@ import {WelcomeComponent} from "./common/welcome.component";
 })
 
 @RouteConfig([
-    {
-        path: '/',
-        name: 'Home',
-        component: WelcomeComponent
-    }
+    {path: '/',             name: 'Home',   component: WelcomeComponent},
+    {path: '/albums',       name: 'Albums', component: AlbumsComponent},
+    {path: '/album',        name: 'Album',  component: AlbumComponent},
+    {path: '/login',        name: 'Login',  component: LoginComponent},
+    {path: '/registration', name: 'Home',   component: RegistrationComponent}
 ])
 export default class AppComponent {
     constructor(){

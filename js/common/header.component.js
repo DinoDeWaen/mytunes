@@ -12,15 +12,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by serrut on 05/06/16.
  */
 var core_1 = require('@angular/core');
+var search_component_1 = require("./search.component");
+var router_1 = require('@angular/router');
+var user_srv_1 = require("../user/services/user.srv");
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(userService, router) {
+        var _this = this;
+        this.userService = userService;
+        this.router = router;
+        this.userService.getUser()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
     }
+    HeaderComponent.prototype.search = function ($event) {
+        this.router.navigate(["Albums", { query: $event }]);
+    };
+    HeaderComponent.prototype.logout = function () {
+        var _this = this;
+        this.userService.logout()
+            .subscribe(function () {
+            _this.router.navigateByUrl("/");
+        });
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'header-component',
-            template: 'header'
+            template: "\n        <nav class=\"navbar navbar-inverse\">\n          <div class=\"container-fluid\">\n            <!-- Brand and toggle get grouped for better mobile display -->\n            <div class=\"navbar-header\">\n              <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n                <span class=\"sr-only\">Toggle navigation</span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n              </button>\n              <a class=\"navbar-brand\" href=\"#\">MyTunes</a>\n            </div>\n\n            <!-- Collect the nav links, forms, and other content for toggling -->\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n              <form class=\"navbar-form navbar-left\" role=\"search\">\n                <search-component (searchChange)=\"search($event)\"></search-component>\n              </form>\n              <ul class=\"nav navbar-nav navbar-right\">\n                <li><a type=\"button\" class=\"btn btn-info navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Login']\">Login</a></li>\n                <li><a type=\"button\" class=\"btn btn-success navbar-btn\" *ngIf=\"!user\" [routerLink]=\"['Register']\">Register</a></li>\n                <li><a href=\"#\" *ngIf=\"user\">{{ user.email }}</a></li>\n                <li><a href=\"#\" *ngIf=\"user\" (click)=\"logout()\">Logout</a></li>\n              </ul>\n            </div><!-- /.navbar-collapse -->\n          </div><!-- /.container-fluid -->\n        </nav>\n    ",
+            providers: [user_srv_1.UserService, router_1.ROUTER_PROVIDERS],
+            directives: [router_1.ROUTER_DIRECTIVES, search_component_1.SearchComponent]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_srv_1.UserService, router_1.Router])
     ], HeaderComponent);
     return HeaderComponent;
 }());

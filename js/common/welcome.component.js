@@ -14,11 +14,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var WelcomeComponent = (function () {
     function WelcomeComponent() {
+        this.showMore = false;
     }
+    WelcomeComponent.prototype.onShowMore = function () {
+        this.showMore = true;
+    };
     WelcomeComponent = __decorate([
         core_1.Component({
             selector: 'welcome-component',
-            template: "<h1>welcome</h1>"
+            template: "\n       <div class=\"jumbotron\">\n          <h1>Welcome to MyTunes</h1>\n          <p><a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\" *ngIf=\"!showMore\" (click)=\"onShowMore()\">Learn more</a></p>\n          <ul *ngIf=\"showMore\">\n            <li>Components</li>\n            <li>Directives</li>\n            <li>Routing</li>\n            <li>Services</li>\n            <li>TypeScript</li>\n            <li>Styles</li>\n            <li>Forms</li>\n            <li>Http</li>\n            <li>Data binding</li>\n          </ul>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], WelcomeComponent);

@@ -14,11 +14,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var FooterComponent = (function () {
     function FooterComponent() {
+        this.year = (new Date()).getFullYear();
     }
     FooterComponent = __decorate([
         core_1.Component({
             selector: 'footer-component',
-            template: 'footer'
+            template: "\n        <footer class=\"footer\">\n          <div class=\"container\">\n            <a class=\"text-muted\" href=\"/\">Dino De Waen, {{ year }}</a>\n            <a class=\"text-muted\" href=\"https://twitter.com/dinodewaen\" target=\"_blank\"><i class=\"fa fa-twitter\"></i> @dinodewaen</a>\n            <a class=\"text-muted\" href=\"https://www.linkedin.com/in/dinodewaen\" target=\"_blank\"><i class=\"fa fa-linkedin\"></i> Linkedin</a>\n          </div>\n        </footer>\n    ",
+            styles: ["\n        footer {\n            position: absolute;\n            bottom : 0;\n            width : 100%;\n            height : 60px;\n            background-color: whitesmoke;\n        }\n\n        .container {\n            height : 60px;\n        }\n\n        a {\n            height : 60px;\n            line-height : 60px;\n            margin-right : 5em;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], FooterComponent);

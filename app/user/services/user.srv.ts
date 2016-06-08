@@ -16,7 +16,7 @@ export class UserService {
         this._myFirebaseRef = new Firebase("https://radiant-inferno-6600.firebaseio.com/");
     }
 
-    getUser():Observable {
+    getUser():Observable  <UserImp>{
         return new Observable(observable => {
             this._myFirebaseRef.onAuth(authData => {
                 let user;
@@ -28,7 +28,7 @@ export class UserService {
         });
     }
 
-    login(email:string, password:string):Observable {
+    login(email:string, password:string):Observable <UserImp>{
         return new Observable(observable => {
             this._myFirebaseRef.authWithPassword({
                 email : email,
@@ -43,7 +43,7 @@ export class UserService {
         });
     }
 
-    register(email:string, password:string):Observable {
+    register(email:string, password:string):Observable <UserImp> {
         return new Observable(observable => {
             this._myFirebaseRef.createUser({
                 email : email,
@@ -61,7 +61,7 @@ export class UserService {
         });
     }
 
-    logout():Observable {
+    logout():Observable <UserImp> {
         return new Observable(observable => {
             this._myFirebaseRef.unauth()
             observable.next();

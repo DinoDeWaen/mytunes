@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {SearchComponent} from "./search.component";
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, RouterLink } from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router';
 import {User} from "../user/models/user";
 import {UserService} from "../user/services/user.srv";
 
@@ -30,8 +30,8 @@ import {UserService} from "../user/services/user.srv";
                 <search-component (searchChange)="search($event)"></search-component>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a  [routerLink]="['Login']">Login</a></li>
-                <li><a  [routerLink]="['Register']">Register</a></li>
+                <li><a  [routerLink]="['/login']">Login</a></li>
+                <li><a  [routerLink]="['/registration']">Register</a></li>
                 <li><a href="#" *ngIf="user">{{ user.email }}</a></li>
                 <li><a href="#" *ngIf="user" (click)="logout()">Logout</a></li>
               </ul>
@@ -39,7 +39,7 @@ import {UserService} from "../user/services/user.srv";
           </div><!-- /.container-fluid -->
         </nav>
     `,
-    providers : [UserService, ROUTER_PROVIDERS],
+    providers : [UserService],
     directives : [ROUTER_DIRECTIVES, <any>SearchComponent]
 })
 

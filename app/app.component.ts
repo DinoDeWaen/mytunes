@@ -1,6 +1,6 @@
 
 import {Component} from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
 import {FORM_PROVIDERS, FORM_DIRECTIVES, Control} from '@angular/common';
 import {Http} from '@angular/http';
 import {LoginComponent} from "./user/login.component";
@@ -23,12 +23,12 @@ import {AlbumsComponent} from "./music/albums.component";
     providers: [ROUTER_PROVIDERS]
 })
 
-@RouteConfig([
-    {path: '/',             name: 'Home',       component: WelcomeComponent},
-    {path: '/albums',       name: 'Albums',     component: AlbumsComponent},
-    {path: '/album',        name: 'Album',      component: AlbumComponent},
-    {path: '/login',        name: 'Login',      component: LoginComponent},
-    {path: '/registration', name: 'Register',   component: RegistrationComponent}
+@Routes([
+    {path: '/',         component: WelcomeComponent},
+    {path: '/albums',       component: AlbumsComponent},
+    {path: '/album',        component: AlbumComponent},
+    {path: '/login',        component: LoginComponent},
+    {path: '/registration', component: RegistrationComponent}
 ])
 export default class AppComponent {
     constructor(){

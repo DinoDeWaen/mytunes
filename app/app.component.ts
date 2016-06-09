@@ -24,11 +24,11 @@ import {AlbumsComponent} from "./music/albums.component";
 })
 
 @RouteConfig([
-    {path: '/',             name: 'Home',   component: WelcomeComponent},
-    {path: '/albums',       name: 'Albums', component: AlbumsComponent},
-    {path: '/album',        name: 'Album',  component: AlbumComponent},
-    {path: '/login',        name: 'Login',  component: LoginComponent},
-    {path: '/registration', name: 'Home',   component: RegistrationComponent}
+    {path: '/',             name: 'Home',       component: WelcomeComponent},
+    {path: '/albums',       name: 'Albums',     component: AlbumsComponent},
+    {path: '/album',        name: 'Album',      component: AlbumComponent},
+    {path: '/login',        name: 'Login',      component: LoginComponent},
+    {path: '/registration', name: 'Register',   component: RegistrationComponent}
 ])
 export default class AppComponent {
     constructor(){

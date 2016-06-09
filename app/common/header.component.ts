@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {SearchComponent} from "./search.component";
-import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router'
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, RouterLink } from '@angular/router-deprecated';
 import {User} from "../user/models/user";
 import {UserService} from "../user/services/user.srv";
 

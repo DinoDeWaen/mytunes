@@ -16,13 +16,13 @@ export class CountryService {
     }
 
     getCountries() {
-        return new Observable(observable => {
+        return new Observable<Country[]>(observable => {
 
             this.http.get("https://restcountries.eu/rest/v1/all")
                 .map(res => {
-                    res = res.json();
+                    let body = res.json();
                     var countries:Array<Country> = [];
-                    res.forEach(data => {
+                    body.forEach(data => {
                         countries.push(new CountryImpl(data));
                     });
                     return countries;

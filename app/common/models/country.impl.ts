@@ -4,8 +4,12 @@ import {Country} from "./country";
  */
 
 export class CountryImpl implements Country{
-    constructor(public alpha2code:string, public name:string){
+    alpha2code : string;
+    name : string;
 
+    constructor(rawData:any){
+        this.alpha2code = rawData["alpha2Code"];
+        this.name = rawData["name"];
     }
 
 }

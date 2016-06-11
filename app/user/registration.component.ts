@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {UserService} from './services/user.srv';
+import {CountryService} from "../common/services/country.srv";
+import {Country} from "../common/models/country";
 
 
 @Component({
@@ -19,18 +21,27 @@ import {UserService} from './services/user.srv';
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required #password="ngForm" ngControl="password">
             <div class="alert alert-danger" [hidden]="password.valid || password.pristine">Password required</div>
           </div>
-
+            <div class="form-group">
+                <select class="form-control" ngControl="country" #country="ngForm">
+                    <option value="">Select a country</option>
+                    <option *ngFor="#c of countries" [value]="c.alpha2Code">{{ c.name }}</option>
+                </select>
+            </div>
           <button type="submit" class="btn btn-default" [disabled]="!registrationForm.form.valid" (click)="register(email.value, password.value)">Submit</button>
         </form>
     `,
-    providers : [UserService]
+    providers : [UserService, CountryService]
 })
 export class RegistrationComponent {
 
     public error:string;
+    public countries:Array<Country> = [];
 
-    constructor(private userService:UserService, private router:Router) {
-
+    constructor(private userService:UserService, private router:Router, private countryService:CountryService) {
+        this.countryService.getCountries()
+            .subscribe(countries => {
+                this.countries = countries;
+            })
     }
 
     register(email:string, password:string) {

@@ -30,8 +30,8 @@ import {UserService} from "../user/services/user.srv";
                 <search-component (searchChange)="search($event)"></search-component>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a  [routerLink]="['/login']">Login</a></li>
-                <li><a  [routerLink]="['/registration']">Register</a></li>
+                <li><a type="button" class="btn btn-info navbar-btn"    *ngIf="!user" [routerLink]="['/login']">Login</a></li>
+                <li><a type="button" class="btn btn-success navbar-btn" *ngIf="!user" [routerLink]="['/registration']">Register</a></li>
                 <li><a href="#" *ngIf="user">{{ user.email }}</a></li>
                 <li><a href="#" *ngIf="user" (click)="logout()">Logout</a></li>
               </ul>

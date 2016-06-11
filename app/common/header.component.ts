@@ -32,8 +32,8 @@ import {UserService} from "../user/services/user.srv";
               <ul class="nav navbar-nav navbar-right">
                 <li><a type="button" class="btn btn-info navbar-btn"    *ngIf="!user" [routerLink]="['/login']">Login</a></li>
                 <li><a type="button" class="btn btn-success navbar-btn" *ngIf="!user" [routerLink]="['/registration']">Register</a></li>
-                <li><a href="#" *ngIf="user">{{ user.email }}</a></li>
-                <li><a href="#" *ngIf="user" (click)="logout()">Logout</a></li>
+                <li><a *ngIf="user">{{ user.email }}</a></li>
+                <li><a *ngIf="user" (click)="logout()">Logout</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -55,7 +55,7 @@ export class HeaderComponent {
     }
 
     search($event) {
-        this.router.navigate(["Albums", { query : $event}]);
+        this.router.navigate(["/albums", { query : $event}]);
     }
 
     logout() {

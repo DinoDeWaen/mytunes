@@ -5,8 +5,8 @@ import {Component} from '@angular/core';
 import {Album} from "./models/album";
 import {AlbumImageSize} from "./models/album";
 import {MusicService} from "./services/music.srv";
-import {RouteSegment} from '@angular/router';
-
+import {RouteSegment, ROUTER_DIRECTIVES} from '@angular/router';
+import {Song} from "./models/song";
 
 @Component({
     selector: 'album-component',
@@ -17,18 +17,21 @@ import {RouteSegment} from '@angular/router';
             </div>
             <div class="media">
               <div class="media-left">
-                <a href="#">
+                <a>
                   <img class="media-object" [src]="album.getImage(albumImageSize)">
                 </a>
               </div>
               <div class="media-body">
-                   <ul *ngFor="#song of album.songs">
+                   <ul *ngFor="let song of album.songs">
                         <li>{{ song.name}}</li>
                    </ul>
               </div>
             </div>
         </div>
-    `
+    `,
+    providers  : [MusicService],
+    directives : [ROUTER_DIRECTIVES]
+
 })
 
 export class AlbumComponent {
@@ -40,8 +43,8 @@ export class AlbumComponent {
         this.getAlbumInfo(this.routeParams.getParam("id"));
     }
 
-    getAlbumInfo(id:string) {
-        this.musicService.albumInfo(id)
+    getAlbumInfo(query:String) {
+        this.musicService.albumInfo(query)
             .subscribe(album => {
                 this.album = album;
             })

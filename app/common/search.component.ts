@@ -1,8 +1,7 @@
 /**
  * Created by serrut on 05/06/16.
  */
-import {Component,Output} from '@angular/core';
-import {EventEmitter} from "events";
+import {Component,Output, EventEmitter} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 
@@ -17,7 +16,7 @@ import {Observable} from 'rxjs/Observable';
 })
 
 export class SearchComponent {
-    @Output() searchChange:EventEmitter = new EventEmitter();
+    @Output() searchChange:EventEmitter<String> = new EventEmitter();
 
     constructor() {
 

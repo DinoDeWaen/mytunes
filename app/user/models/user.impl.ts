@@ -1,7 +1,7 @@
 /**
  * Created by serrut on 07/06/16.
  */
-    import {User} from './user'
+import {User} from './user'
 export class UserImp implements User{
 
     userName:string;

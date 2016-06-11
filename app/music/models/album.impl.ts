@@ -11,7 +11,7 @@ export class AlbumImpl implements Album{
     public artist:string,
     public url:string,
     public images:Array<string>,
-    songs : Array<Song>) {
+    public songs : Array<Song>) {
 
     }
 

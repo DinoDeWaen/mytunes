@@ -12,11 +12,11 @@ import {Pager} from '../common/models/pager';
     selector : 'albums-component',
     template : `
         <ul class="media-list">
-              <li class="media" *ngFor="#album of albums" [routerLink]="['/album', { id : album.id }]" [activeColor]="'red'">
+              <li class="media" *ngFor="#album of albums">
                 <div class="media-left">
-                  <a href="#">
-                    <img class="media-object" [src]="album.getImage(albumImageSize)" >
-                  </a>
+                    <a [routerLink]="['/album', { id : album.id }]">
+                        <img class="media-object" [src]="album.getImage(albumImageSize)" >
+                    </a>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">{{album.name}}</h4>

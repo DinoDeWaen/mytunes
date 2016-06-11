@@ -21,7 +21,7 @@ export class MusicService {
     albumsSearch(query:String, page:number = 0) {
         return new Observable<Album[]>(observable => {
             let pageParam:number = page + 1;
-           let url = " http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + query + "&format=json&api_key=" + this.apiId + "&page=1";
+            let url = " http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + query + "&format=json&api_key=" + this.apiId + "&page=1";
             this.http.get(url)
                 .map(res => {
                     let body = res.json();
@@ -44,11 +44,11 @@ export class MusicService {
             this.http.get(url)
                 .map(res => {
                     let body = res.json();
-                    let  data = body.album;
+                    let data = body.album;
 
                     var songs:Array<Song> = [];
-                    data.tracks.track.forEach(data => {
-                        songs.push(new SongImpl(data.name));
+                    data.tracks.track.forEach(track => {
+                        songs.push(new SongImpl(track.name));
                     });
 
                     let album:Album = new AlbumImpl(data["mbid"], data["name"], data["artist"], data["url"], data["image"], songs);

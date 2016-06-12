@@ -5,7 +5,7 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * A small test application, you can login search for artists and see the songs in the ablbum selected. 
-* 1.0
+* version 1.0
 * [Learn angular 2]
 
 ### How do I get set up? ###

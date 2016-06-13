@@ -14,12 +14,14 @@ import {Pager} from '../common/models/pager';
         <ul class="media-list">
               <li class="media" *ngFor="#album of albums">
                 <div class="media-left">
-                    <a [routerLink]="['/album', { id : album.id }]">
+                    <a [routerLink]="['/album', { id : album.id }]" *ngIf="album.id">
                         <img class="media-object" [src]="album.getImage(albumImageSize)" >
                     </a>
+                    <img class="media-object" [src]="album.getImage(albumImageSize)" *ngIf="!album.id">
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading">{{album.name}}</h4>
+                  <h4 class="media-heading" *ngIf="album.id"><a [routerLink]="['/album', { id : album.id }]">{{album.name}}</a></h4>
+                  <h4 class="media-heading" *ngIf="!album.id">{{album.name}}</h4>
                   {{album.artist}}
                 </div>
               </li>

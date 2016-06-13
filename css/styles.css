@@ -6,3 +6,9 @@ html {
 body {
     margin-bottom : 60px;
 }
+
+.media-object {
+    width: 64px;
+    height: 64px;
+    background-color: #DDDDDD;
+}

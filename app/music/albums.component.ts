@@ -12,7 +12,7 @@ import {Pager} from '../common/models/pager';
     selector : 'albums-component',
     template : `
         <ul class="media-list">
-              <li class="media" *ngFor="#album of albums">
+              <li class="media" *ngFor="let album of albums">
                 <div class="media-left">
                     <a [routerLink]="['/album', { id : album.id }]" *ngIf="album.id">
                         <img class="media-object" [src]="album.getImage(albumImageSize)" >
